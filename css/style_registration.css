@@ -1,0 +1,305 @@
+/* Обнуление */
+@font-face {
+  font-family: "IkaTrial__ExtraLight";
+  src: url("/fonts/IkaTrial-ExtraLight.woff2") format("woff2"),
+    url("/fonts/IkaTrial-ExtraLight.woff") format("woff");
+}
+@font-face {
+  font-family: "IkaTrial__Light";
+  src: url("/fonts/IkaTrial-Light.woff2") format("woff2"),
+    url("/fonts/IkaTrial-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "IkaTrial__Medium";
+  src: url("/fonts/IkaTrial-Medium.woff2") format("woff2"),
+    url("/fonts/IkaTrial-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "IkaTrial__Regular";
+  src: url("/fonts/IkaTrial-Regular.woff2") format("woff2"),
+    url("/fonts/IkaTrial-Regular.woff") format("woff");
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 135%;
+  line-height: 1;
+  font-size: 14px;
+  font-family: "IkaTrial", "Helvetica Neue", Helvetica, sans-serif;
+}
+body {
+  background: url(../img/svg/background_registration.svg) no-repeat;
+}
+input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+/* ------------------ */
+
+.form {
+  max-width: 922px;
+  margin: 100px auto;
+  color: #000;
+  padding: 57px 110px;
+  background: rgba(66, 0, 255, 0.1);
+  border-radius: 50px;
+}
+
+.form * {
+  outline: none;
+}
+
+.form__body {
+  position: relative;
+}
+.form__body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.9) url("../img/loading.gif") center / 50px
+    no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease 0s;
+}
+.form__body._sending::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form__title {
+  font-family: "IkaTrial__Medium";
+  font-size: 52.7666px;
+  width: 101%;
+  line-height: 67px;
+  margin: 0px 0px 34px -2px;
+}
+.form__item {
+  margin: 0px 0px 20px 0px;
+}
+.form__label {
+  font-family: "IkaTrial__Light";
+  font-size: 27.854px;
+  line-height: 35px;
+  display: block;
+  margin: 0px 0px 5px 0px;
+}
+.form__input {
+  padding: 0px 20px;
+  border-radius: 11.6058px;
+  min-width: 100%;
+  height: 55px;
+  font-size: 18px;
+  margin-left: 3px;
+  margin-bottom: -8px;
+  transition: all 0.5s ease 0s;
+}
+
+.form__input:focus,
+.form__input:hover {
+  box-shadow: 0 0 15px #4200ff;
+}
+.form__input._error {
+  box-shadow: 0 0 15px red;
+}
+
+textarea.form__input {
+  min-height: 120px;
+  resize: vertical;
+  padding: 20px;
+}
+
+.options {
+  font-family: "IkaTrial__Light";
+}
+.options__item {
+  margin: 0px 0px 6px 0px;
+}
+.options__input {
+  display: none;
+}
+
+.options__input:checked + .options__label::after {
+  transform: scale(1);
+}
+
+.options__label {
+  display: inline-flex;
+  font-size: 21.7261px;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+.options__label::before {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 24px;
+  height: 24px;
+  border: 1.72259px solid #000;
+  border-radius: 50%;
+  margin: 3px 11px 0px 2px;
+}
+.options__label::after {
+  transition: transform 0.5s ease 0s;
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  background-color: #00c2ff;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.file__item {
+  position: relative;
+}
+.file__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  font-size: 0;
+  cursor: pointer;
+}
+.file__button {
+  font-family: "IkaTrial__Regular";
+  font-size: 18.7904px;
+  display: inline-flex;
+  min-height: 33px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  border: 1.74087px solid #000000;
+  margin-left: 4px;
+  margin-top: 6px;
+  padding: 0px 41px;
+}
+
+.file__preview {
+  display: inline-block;
+  max-width: 100px;
+  padding: 10px 0px 0px 0px;
+}
+.file__preview img {
+  max-width: 100%;
+}
+
+.checkbox {
+  margin-top: -20px;
+}
+.checkbox._error .checkbox__label::before {
+  box-shadow: 0 0 15px red;
+  margin-top: 10px;
+}
+
+.file__input_error + ._error {
+  box-shadow: 0 0 15px red;
+}
+
+.checkbox__input {
+  display: none;
+}
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+
+.checkbox__label {
+  font-family: "IkaTrial__Regular";
+  font-size: 27.854px;
+  line-height: 35px;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 101%;
+}
+
+.checkbox__label::before {
+  content: "";
+  align-self: flex-start;
+  flex: 0 0 24px;
+  height: 24px;
+  border: 1.72259px solid #000;
+  border-radius: 50%;
+  margin: 3px 11px 0px 2px;
+}
+.checkbox__label::after {
+  transition: transform 0.5s ease 0s;
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  background-color: #00c2ff;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.checkbox__label a {
+  color: #4200ff;
+}
+
+.form__button {
+  font-family: "IkaTrial__Light";
+  width: 53%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  background-color: #4200ff;
+  color: #fff;
+  font-size: 40.0515px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 0 5px 0 #161b13;
+  transition: background-color 0.5s ease 0s;
+  position: relative;
+  top: -10px;
+}
+.form__button:hover {
+  background-color: #2c01a1;
+}
+.form__button:active {
+  top: 3px;
+  box-shadow: 0 2px 0 #180155;
+}
